@@ -21,7 +21,7 @@ export function AudioVideoTest({ mode = 'all' }: AudioVideoTestProps) {
 
     // Mic Visualization Refs
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const animationRef = useRef<number>()
+    const animationRef = useRef<number | null>(null)
     const audioContextRef = useRef<AudioContext | null>(null)
     const analyserRef = useRef<AnalyserNode | null>(null)
     const sourceRef = useRef<MediaStreamAudioSourceNode | null>(null)
@@ -279,19 +279,19 @@ export function AudioVideoTest({ mode = 'all' }: AudioVideoTestProps) {
 
             {showSpeakers && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <Button size="xl" onClick={() => testSpeaker('left')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
+                    <Button size="lg" onClick={() => testSpeaker('left')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
                         <div className="p-3 bg-blue-500/10 rounded-full text-blue-500"><Volume2 className="h-6 w-6 rotate-180" /></div>
                         <span className="font-bold">LEFT</span>
                     </Button>
-                    <Button size="xl" onClick={() => testSpeaker('center')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
+                    <Button size="lg" onClick={() => testSpeaker('center')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
                         <div className="p-3 bg-white/10 rounded-full text-white"><Volume2 className="h-6 w-6" /></div>
                         <span className="font-bold">CENTER</span>
                     </Button>
-                    <Button size="xl" onClick={() => testSpeaker('right')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
+                    <Button size="lg" onClick={() => testSpeaker('right')} variant="secondary" className="h-32 flex-col gap-4 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800">
                         <div className="p-3 bg-red-500/10 rounded-full text-red-500"><Volume2 className="h-6 w-6" /></div>
                         <span className="font-bold">RIGHT</span>
                     </Button>
-                    <Button size="xl" onClick={() => testSpeaker('both')} variant="secondary" className="h-32 flex-col gap-4 bg-white/5 border border-white/10 hover:bg-white/10">
+                    <Button size="lg" onClick={() => testSpeaker('both')} variant="secondary" className="h-32 flex-col gap-4 bg-white/5 border border-white/10 hover:bg-white/10">
                         <span className="text-xl font-bold">ALL</span>
                     </Button>
                 </div>
