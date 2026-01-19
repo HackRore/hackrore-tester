@@ -1,65 +1,89 @@
-import Image from "next/image";
+"use client"
+
+import {
+  Camera, Mic, Volume2, Keyboard, Mouse, Smartphone, Monitor, Wifi,
+  FileText, Workflow, Bot, Info, Globe, Shield, Terminal
+} from "lucide-react"
+import Link from "next/link"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
+  const sections = [
+    {
+      title: "Device Tests",
+      description: "Check your peripherals and hardware.",
+      items: [
+        { title: "Camera", icon: Camera, href: "/test/camera", desc: "Webcam functionality" },
+        { title: "Microphone", icon: Mic, href: "/test/mic", desc: "Audio input check" },
+        { title: "Speakers", icon: Volume2, href: "/test/camera", desc: "Sound output check" }, // Reusing component
+        { title: "Keyboard", icon: Keyboard, href: "/test/keyboard", desc: "Key press tracker" },
+        { title: "Mouse", icon: Mouse, href: "/test/keyboard", desc: "Pointer check" },
+        { title: "Touch Screen", icon: Smartphone, href: "/test/touch", desc: "Digitizer dead zones" },
+        { title: "Display", icon: Monitor, href: "/test/display", desc: "Dead pixel check" },
+        { title: "Network", icon: Wifi, href: "/test/network", desc: "Speed simulation" },
+      ]
+    },
+    {
+      title: "Technician & Workflow",
+      description: "Tools for repair documentation and assistance.",
+      items: [
+        { title: "Case Logs", icon: FileText, href: "/workflow", desc: "Generate PDF reports" },
+        { title: "Wiring Diag.", icon: Workflow, href: "/workflow", desc: "Builder tool" },
+        { title: "AI Assistant", icon: Bot, href: "/ai", desc: "Troubleshooting bot" },
+        { title: "Cheat Sheets", icon: Info, href: "/workflow", desc: "Reference data" },
+      ]
+    },
+    {
+      title: "System Tools",
+      description: "Browser and connectivity information.",
+      items: [
+        { title: "Public IP", icon: Globe, href: "/tools", desc: "Geolocation info" },
+        { title: "System Info", icon: Terminal, href: "/test/system", desc: "Battery & OS" },
+        { title: "Browser", icon: Shield, href: "/tools", desc: "Security & Caps" },
+      ]
+    }
+  ]
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container mx-auto py-12 px-4 space-y-16">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">Device Testing Suite</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Professional diagnostics, workflow tools, and AI assistance for modern technicians.
+        </p>
+      </div>
+
+      {sections.map((section) => (
+        <div key={section.title} className="space-y-6">
+          <div className="border-b pb-4">
+            <h2 className="text-2xl font-bold tracking-tight">{section.title}</h2>
+            <p className="text-muted-foreground">{section.description}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {section.items.map((item) => (
+              <Card key={item.title} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden border-muted-foreground/10">
+                <Link href={item.href} className="absolute inset-0 z-10">
+                  <span className="sr-only">Open {item.title}</span>
+                </Link>
+                <CardHeader className="text-center pt-8 pb-2">
+                  <div className="mx-auto bg-primary/5 p-4 rounded-full mb-4 group-hover:bg-primary/10 transition-colors">
+                    <item.icon className="h-10 w-10 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center pb-8">
+                  <CardDescription className="mb-6">{item.desc}</CardDescription>
+                  <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    Start Test
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      ))}
     </div>
-  );
+  )
 }
