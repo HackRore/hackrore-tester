@@ -1,5 +1,5 @@
 "use client"
-import { NetworkTest } from "@/components/diagnostics/network-test"
+import NetworkTest from "@/components/diagnostics/network-test"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, Wifi } from "lucide-react"
@@ -16,7 +16,7 @@ export default function NetworkPage() {
                             Back to Dashboard
                         </Button>
                     </Link>
-                    
+
                     <div className="flex items-center gap-4 mb-4">
                         <div className="p-3 bg-indigo-500/10 rounded-xl border border-indigo-500/20">
                             <Wifi className="h-8 w-8 text-indigo-400" />

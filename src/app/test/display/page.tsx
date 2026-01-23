@@ -1,5 +1,5 @@
 "use client"
-import { DisplayTest } from "@/components/diagnostics/display-test"
+import DisplayTest from "@/components/diagnostics/display-test"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, Monitor } from "lucide-react"
@@ -15,7 +15,7 @@ export default function DisplayPage() {
                             Back to Dashboard
                         </Button>
                     </Link>
-                    
+
                     <div className="flex items-center gap-4 mb-4">
                         <div className="p-3 bg-yellow-500/10 rounded-xl border border-yellow-500/20">
                             <Monitor className="h-8 w-8 text-yellow-400" />

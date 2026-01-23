@@ -3,8 +3,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AudioVideoTest } from "@/components/diagnostics/audio-video-test"
 import { InputTest } from "@/components/diagnostics/input-test"
-import { DisplayTest } from "@/components/diagnostics/display-test"
-import { NetworkTest } from "@/components/diagnostics/network-test"
+import DisplayTest from "@/components/diagnostics/display-test"
+import NetworkTest from "@/components/diagnostics/network-test"
 import { SystemTest } from "@/components/diagnostics/system-test"
 
 export default function DiagnosticsPage() {
