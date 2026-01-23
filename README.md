@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Technician Suite
+
+A comprehensive web application for computer technicians, combining hardware diagnostics, a professional portfolio, and a resource hub.
+
+## Features
+
+### 🛠️ Diagnostic Toolkit
+- **Hardware Tests**: Camera, Mic, Speakers, Keyboard, Mouse, Touchscreen, Display (Dead Pixels).
+- **Benchmarks**: GPU Particle Stress Test, CPU Prime Calculation.
+- **System**: Battery Health, Network Speed, Storage Read/Write Speed, Controller/Gamepad Tester.
+
+### 💼 Portfolio
+- Professional Technician Profile.
+- Repair Case Logs.
+- Refurbished Product Showcase.
+- Client Testimonials.
+
+### 📚 Resources
+- Searchable Knowledge Base (Repair Guides).
+- Quick Reference Cheat Sheets (RAM, Beep Codes, CMD).
+- AI Troubleshooting Assistant (Prototype).
+
+### 🎨 UI/UX
+- Responsive Dashboard Layout with Sidebar.
+- Dark/Light Mode.
+- Fast Next.js 14 App Router Architecture.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/smart-technician-suite.git
+   cd smart-technician-suite
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Vercel
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. The preset should automatically detect Next.js.
+4. Click **Deploy**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Replit
+1. Create a new Repl and import from GitHub.
+2. Run `npm install` and `npm run dev` in the shell or configure the `.replit` file.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **UI Components**: Radix UI / Shadcn

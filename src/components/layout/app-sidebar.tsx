@@ -1,6 +1,6 @@
 "use client"
 
-import { Calendar, Home, Inbox, Search, Settings, Wrench, Activity, FileText, Bot, Globe } from "lucide-react"
+import { Home, Activity, FileText, Globe } from "lucide-react"
 
 import {
     Sidebar,
@@ -32,16 +32,6 @@ const items = [
         title: "Workflow Helpers",
         url: "/workflow",
         icon: FileText,
-    },
-    {
-        title: "AI Utilities",
-        url: "/ai",
-        icon: Bot,
-    },
-    {
-        title: "Tools & Info",
-        url: "/tools",
-        icon: Globe,
     },
 ]
 
