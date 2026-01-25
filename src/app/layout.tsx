@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProviderWrapper } from "@/context/ThemeContext";
 import { DashboardLayout } from "@/components/layout/dashboard-layout"
+import { GamificationProvider } from "@/context/GamificationContext";
+import { ResultsProvider } from "@/context/ResultsContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +28,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <DashboardLayout>
-            {children}
-          </DashboardLayout>
+          <ThemeProviderWrapper>
+            <GamificationProvider>
+              <ResultsProvider>
+                <DashboardLayout>
+                  {children}
+                </DashboardLayout>
+              </ResultsProvider>
+            </GamificationProvider>
+          </ThemeProviderWrapper>
         </ThemeProvider>
       </body>
     </html>
